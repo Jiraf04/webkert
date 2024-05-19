@@ -1,0 +1,6 @@
+<div>
+  <mat-form-field>
+    <mat-select (selectionChange)="reload()" [(ngModel)]="chosenDoctor"></mat-select>
+    <mat-option *ngFor="let obj of doctorsInput" [value]="obj" >{{obj.name}}</mat-option>
+  </mat-form-field>
+</div>

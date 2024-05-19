@@ -1,0 +1,17 @@
+.div-main {
+  height: 100vh;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.list, .details {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 100vh;
+}

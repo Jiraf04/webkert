@@ -1,0 +1,50 @@
+<span class="loading-indicator" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</span>
+
+<div class="div-main">
+  <div class="div-flex">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label for="name">Name:</mat-label>
+        <input matInput type="text" formControlName="name" id="name">
+        <mat-error *ngIf="registrationForm.get('name')?.invalid && (registrationForm.get('name')?.dirty || registrationForm.get('name')?.touched)">
+          Name is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="email">Email:</mat-label>
+        <input matInput type="email" formControlName="email" id="email">
+        <mat-error *ngIf="registrationForm.get('email')?.invalid && (registrationForm.get('email')?.dirty || registrationForm.get('email')?.touched)">
+          Email is required and must be a valid email address.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="password">Password:</mat-label>
+        <input matInput type="password" formControlName="password" id="password">
+        <mat-error *ngIf="registrationForm.get('password')?.invalid && (registrationForm.get('password')?.dirty || registrationForm.get('password')?.touched)">
+          Password is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="passwordAgain">Password again:</mat-label>
+        <input matInput type="password" formControlName="passwordAgain" id="passwordAgain">
+        <mat-error *ngIf="registrationForm.get('passwordAgain')?.invalid && (registrationForm.get('passwordAgain')?.dirty || registrationForm.get('passwordAgain')?.touched)">
+          Password confirmation is required.
+        </mat-error>
+      </mat-form-field>
+
+      <div class="button-group">
+        <button mat-raised-button type="submit" [disabled]="loading || registrationForm.invalid">Register</button>
+        <button mat-raised-button [routerLink]="'/main'" [disabled]="loading">Back</button>
+      </div>
+
+      <div class="error-message" *ngIf="error">
+        {{ error }}
+      </div>
+    </form>
+  </div>
+</div>

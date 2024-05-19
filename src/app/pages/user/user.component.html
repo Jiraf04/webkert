@@ -1,0 +1,27 @@
+<div class="div-main">
+  <div>
+    <h1>User data</h1>
+    <div class="user-info">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Username: {{ user?.name }}</mat-card-title>
+          <mat-card-title>Email: {{ user?.email }}</mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </div>
+  </div>
+  <div>
+    <h1>Your appointments</h1>
+    <div *ngIf="appointments && appointments.length > 0; else noAppointments">
+      <mat-list>
+        <mat-list-item *ngFor="let appointment of appointments">
+          <h3 matLine>Time: {{ appointment.appointmentTime | datumFormat}}</h3>
+          <!-- Ide írhatod a további időpont-adatokat -->
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <ng-template #noAppointments>
+      <p>You have no appointment.</p>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div *ngIf="doctorInput">
+  <h2>Available Appointments for {{ doctorInput.name }}</h2>
+  <div *ngFor="let appointment of availableAppointments" class="appointment-card">
+    <mat-card>
+      <mat-card-title>{{ appointment.availableTime | datumFormat}}</mat-card-title>
+      <mat-card-actions>
+        <button mat-button color="primary" (click)="bookAppointment(appointment)">Book</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

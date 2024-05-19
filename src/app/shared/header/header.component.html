@@ -1,0 +1,31 @@
+<mat-nav-list>
+  <a mat-list-item routerLink="/main" (click)="close()">
+    <mat-icon>grid_view</mat-icon>
+    <span>Main</span>
+  </a>
+<!--  <a mat-list-item routerLink="/doctors" (click)="close()" *ngIf="loggedInUser">-->
+<!--    <mat-icon>grid_view</mat-icon>-->
+<!--    <span>Doctors</span>-->
+<!--  </a>-->
+  <a mat-list-item routerLink="/booking" (click)="close()" *ngIf="loggedInUser">
+    <mat-icon>grid_view</mat-icon>
+    <span>Booking</span>
+  </a>
+  <a mat-list-item routerLink="/login" (click)="close()" *ngIf="!(loggedInUser)">
+    <mat-icon>login</mat-icon>
+    <span>Login</span>
+  </a>
+  <a mat-list-item routerLink="/login" (click)="close(true)" *ngIf="loggedInUser">
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+  </a>
+  <a mat-list-item routerLink="/registration" (click)="close()" *ngIf="!(loggedInUser)">
+    <mat-icon>app_registration</mat-icon>
+    <span>Registration</span>
+  </a>
+  <a mat-list-item routerLink="/user" (click)="close()" *ngIf="loggedInUser">
+    <mat-icon>grid_view</mat-icon>
+    <span>UserDTO</span>
+  </a>
+
+</mat-nav-list>
